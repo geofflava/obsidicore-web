@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Obsidicore — social card</title>
+<style>
+  :root{
+    --obsidian:#121014; --glass:#1A171D; --ink:#EAE6E0; --ash:#948D95;
+    --line:rgba(234,230,224,.13); --ember:#FF5B1F;
+    --mono:"Cascadia Code","JetBrains Mono",Consolas,ui-monospace,"SF Mono",monospace;
+  }
+  *{box-sizing:border-box;margin:0}
+  html,body{width:1200px;height:630px}
+  body{
+    color:var(--ink);font-family:var(--mono);
+    background:
+      linear-gradient(112deg, rgba(234,230,224,.06) 0%, rgba(234,230,224,.02) 22%, transparent 42%),
+      linear-gradient(180deg, #1B1820, #121014 72%);
+    padding:74px 80px;display:flex;flex-direction:column;justify-content:space-between;
+    position:relative;overflow:hidden;-webkit-font-smoothing:antialiased;
+  }
+  body::after{content:"";position:absolute;top:-30%;right:-6%;width:46%;height:150%;
+    background:linear-gradient(100deg, transparent 44%, rgba(234,230,224,.07) 50%, transparent 56%);pointer-events:none}
+  .top{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1}
+  .wordmark{font-weight:700;font-size:20px;letter-spacing:.24em}
+  .tagline{font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--ash)}
+  .tagline em{color:var(--ember);font-style:normal}
+  h1{font-weight:800;font-size:74px;line-height:1.08;letter-spacing:-.02em;position:relative;z-index:1}
+  .foot{font-size:16px;letter-spacing:.08em;color:var(--ash);position:relative;z-index:1}
+  .foot b{color:var(--ink);font-weight:600}
+</style>
+</head>
+<body>
+  <div class="top">
+    <span class="wordmark">OBSIDICORE</span>
+    <span class="tagline">Obsidian is what <em>lava</em> becomes when it cools fast.</span>
+  </div>
+  <h1>AI agent systems,<br>run safely.</h1>
+  <div class="foot"><b>Obsidicore LLC</b> &nbsp;·&nbsp; Firebase / GCP &nbsp;·&nbsp; Runworthy, graded against Agent Flight Rules</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+{
+  "hosting": {
+    "site": "obsidicore-web",
+    "public": "public",
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          {
+            "key": "Content-Security-Policy",
+            "value": "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests"
+          },
+          { "key": "X-Content-Type-Options", "value": "nosniff" },
+          { "key": "X-Frame-Options", "value": "DENY" },
+          { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+          { "key": "Permissions-Policy", "value": "geolocation=(), microphone=(), camera=(), browsing-topics=()" },
+          { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" },
+          { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains" },
+          { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        ]
+      },
+      {
+        "source": "**/*.@(svg|png|ico|webmanifest)",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=3600" }
+        ]
+      },
+      {
+        "source": "**/*.@(xml|txt)",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=3600" }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Obsidicore — AI agent systems, run safely</title>
+<meta name="description" content="Obsidicore LLC builds AI agent systems on Firebase and Google Cloud — and the operational tooling to run them safely.">
+<link rel="canonical" href="https://obsidicore.com/">
+<meta name="theme-color" content="#121014">
+<meta name="color-scheme" content="dark">
+<meta name="author" content="Geoff &quot;Lava&quot; Lavagnino">
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Obsidicore">
+<meta property="og:url" content="https://obsidicore.com/">
+<meta property="og:title" content="Obsidicore — AI agent systems, run safely">
+<meta property="og:description" content="Obsidicore LLC builds AI agent systems on Firebase and Google Cloud — and the operational tooling to run them safely.">
+<meta property="og:image" content="https://obsidicore.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Obsidicore — AI agent systems, run safely.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Obsidicore — AI agent systems, run safely">
+<meta name="twitter:description" content="Obsidicore LLC builds AI agent systems on Firebase and Google Cloud — and the operational tooling to run them safely.">
+<meta name="twitter:image" content="https://obsidicore.com/og.png">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+  :root{
+    --obsidian:#121014; --glass:#1A171D; --ink:#EAE6E0; --ash:#948D95;
+    --line:rgba(234,230,224,.13); --line-soft:rgba(234,230,224,.07);
+    --ember:#FF5B1F; --go:#7FC29B;
+    --mono:"Cascadia Code","JetBrains Mono",Consolas,ui-monospace,"SF Mono",monospace;
+    --body:system-ui,"Segoe UI",Inter,-apple-system,sans-serif;
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--obsidian);color:var(--ink);font:16px/1.65 var(--body);-webkit-font-smoothing:antialiased}
+  a{color:var(--ink)}
+  a:hover{color:var(--ember)}
+  :focus-visible{outline:2px solid var(--ember);outline-offset:2px;border-radius:2px}
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px}
+  .label{font:600 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ash)}
+
+  header.site{padding:26px 0}
+  .topline{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .wordmark{font:700 14px/1 var(--mono);letter-spacing:.22em;color:var(--ink);text-decoration:none}
+  .topline a.mail{font:500 12px/1 var(--mono);letter-spacing:.08em;color:var(--ash);text-decoration:none}
+
+  /* obsidian glass hero */
+  .slab{
+    margin:34px 0 0;border:1px solid var(--line);border-radius:2px;padding:58px 48px 52px;
+    background:
+      linear-gradient(112deg, rgba(234,230,224,.055) 0%, rgba(234,230,224,.015) 22%, transparent 40%),
+      linear-gradient(292deg, rgba(234,230,224,.04) 0%, transparent 30%),
+      linear-gradient(180deg, #1B1820, #141117 70%);
+    position:relative;overflow:hidden;
+  }
+  .slab::after{ /* conchoidal glint */
+    content:"";position:absolute;top:-40%;right:-12%;width:52%;height:150%;
+    background:linear-gradient(100deg, transparent 44%, rgba(234,230,224,.05) 50%, transparent 56%);
+    pointer-events:none;
+  }
+  .slab .tagline{font:600 10.5px/1.7 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--ash)}
+  .slab .tagline em{color:var(--ember);font-style:normal}
+  .slab h1{font:800 clamp(30px,5.4vw,52px)/1.12 var(--mono);letter-spacing:-.015em;margin:18px 0 20px;max-width:16ch}
+  .slab .lede{color:var(--ash);font-size:17.5px;max-width:56ch}
+  .slab .lede strong{color:var(--ink);font-weight:600}
+
+  section{padding:58px 0 6px}
+  .sec-head{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+  .sec-head h2{font:700 13px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase}
+  .sec-head .rule{flex:1;height:1px;background:var(--line-soft)}
+
+  .rows{border-top:1px solid var(--line)}
+  .row{display:grid;grid-template-columns:230px 1fr;gap:8px 26px;padding:18px 0;border-bottom:1px solid var(--line-soft)}
+  .row h3{font:700 14px/1.5 var(--mono);letter-spacing:.05em}
+  .row p{color:var(--ash);font-size:14.5px}
+
+  .product{border:1px solid var(--line);border-left:3px solid var(--ember);border-radius:2px;background:var(--glass);padding:26px 28px}
+  .product .kicker{font:600 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ember)}
+  .product h3{font:700 22px/1.2 var(--mono);margin:12px 0 10px}
+  .product p{color:var(--ash);font-size:15px;max-width:60ch}
+  .product .sub{margin-top:10px;font-size:13.5px}
+  .product .links{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px}
+  .product .links a{font:600 12px/1 var(--mono);letter-spacing:.06em;text-decoration:none;border-bottom:1px solid var(--ember);padding-bottom:2px}
+  .chip{font:600 10.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(127,194,155,.45);color:var(--go);border-radius:2px;padding:4px 8px;margin-left:12px;vertical-align:2px}
+
+  .who{display:grid;grid-template-columns:96px 1fr;gap:24px;align-items:start}
+  .avatar{width:96px;height:96px;border:1px solid var(--line);border-radius:2px;background:var(--glass);display:grid;place-items:center;font:700 22px/1 var(--mono);color:var(--ash)}
+  .who p{color:var(--ash);font-size:15px;max-width:58ch}
+  .who p strong{color:var(--ink);font-weight:600}
+  .who .links{display:flex;gap:18px;margin-top:12px;flex-wrap:wrap}
+  .who .links a{font:600 12px/1 var(--mono);letter-spacing:.06em;text-decoration:none;border-bottom:1px solid var(--ember);padding-bottom:2px}
+
+  .contact{border:1px solid var(--line);border-radius:2px;background:var(--glass);padding:30px;display:flex;justify-content:space-between;align-items:center;gap:22px;flex-wrap:wrap}
+  .contact p{color:var(--ash);max-width:46ch;font-size:15px}
+  .btn{font:700 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;padding:13px 18px;background:var(--ember);color:#160b04;border:1px solid var(--ember)}
+  .btn:hover{background:#ff7038;color:#160b04}
+
+  footer.site{margin-top:70px;border-top:1px solid var(--line-soft);padding:24px 0 40px}
+  .foot{display:flex;justify-content:space-between;gap:10px 26px;flex-wrap:wrap;color:var(--ash);font:500 12px/1.7 var(--mono)}
+  .foot nav{display:flex;gap:18px;flex-wrap:wrap}
+  .foot a{color:var(--ash);text-decoration:none}
+  .foot a:hover{color:var(--ember)}
+
+  @media (max-width:720px){
+    .slab{padding:38px 24px 34px}
+    .row{grid-template-columns:1fr;gap:4px}
+    .who{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap topline">
+    <a class="wordmark" href="/">OBSIDICORE</a>
+    <a class="mail" href="mailto:geoff@obsidicore.com">geoff@obsidicore.com</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="slab">
+    <p class="tagline">Obsidian is what <em>lava</em> becomes when it cools fast.</p>
+    <h1>AI agent systems, run safely.</h1>
+    <p class="lede">Obsidicore builds agent platforms and content automation on <strong>Firebase and Google Cloud</strong> — and the operational tooling that keeps agents <strong>worth trusting</strong>.</p>
+  </div>
+
+  <section id="what">
+    <div class="sec-head"><h2>What we do</h2><span class="rule"></span></div>
+    <div class="rows">
+      <div class="row"><h3>Agent platforms</h3><p>Design, build, and operate LLM agent systems in production.</p></div>
+      <div class="row"><h3>Automation pipelines</h3><p>Research and content systems that run themselves, with humans on the gates.</p></div>
+      <div class="row"><h3>Agent safety</h3><p>Operational controls, monitoring, and the tooling to prove your agents are safe to run.</p></div>
+    </div>
+  </section>
+
+  <section id="products">
+    <div class="sec-head"><h2>Products</h2><span class="rule"></span></div>
+    <div class="product">
+      <span class="kicker">Open source</span>
+      <h3>Runworthy<span class="chip">Phase 0</span></h3>
+      <p>A GO/NO-GO safety scanner for AI agents: it scans your repo, asks the operational questions code can't answer, and tells you in plain English what to fix first.</p>
+      <p class="sub">Graded against <a href="https://github.com/geofflava/agent-flight-rules">Agent Flight Rules</a>, our open framework (CC BY 4.0).</p>
+      <div class="links">
+        <a href="https://github.com/geofflava/runworthy">Repository</a>
+        <a href="https://lavaforge.dev">The build log</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="who">
+    <div class="sec-head"><h2>Who</h2><span class="rule"></span></div>
+    <div class="who">
+      <div class="avatar" role="img" aria-label="Photo of Geoff Lavagnino (placeholder)">GL</div>
+      <div>
+        <p>Founded by <strong>Geoff "Lava" Lavagnino</strong> — U.S. Air Force veteran (security operations), builder of production AI systems on Firebase/GCP since 2023.</p>
+        <div class="links">
+          <a href="https://lavaforge.dev">lavaforge.dev</a>
+          <a href="https://github.com/geofflava">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="sec-head"><h2>Contact</h2><span class="rule"></span></div>
+    <div class="contact">
+      <p>Working on something with agents in it? We're small; we answer our own email.</p>
+      <a class="btn" href="mailto:geoff@obsidicore.com">geoff@obsidicore.com</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap foot">
+    <span>© 2026 Obsidicore LLC</span>
+    <nav aria-label="Footer">
+      <a href="https://lavaforge.dev">lavaforge.dev</a>
+      <a href="https://github.com/geofflava">GitHub</a>
+      <a href="https://github.com/geofflava/runworthy">Runworthy</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

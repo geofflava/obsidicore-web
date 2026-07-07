@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Obsidicore">
+  <rect width="32" height="32" rx="5" fill="#121014"/>
+  <rect x="0.5" y="0.5" width="31" height="31" rx="4.5" fill="none" stroke="#211D26"/>
+  <path d="M16 5 L25 13 L18 27 L8 17 Z" fill="#211D26"/>
+  <path d="M16 5 L25 13 L18 27 Z" fill="#2C2733"/>
+  <path d="M16 5 L25 13" fill="none" stroke="#FF5B1F" stroke-width="2" stroke-linecap="round"/>
+</svg>
