@@ -134,6 +134,16 @@
     .foot a{transition:color .15s ease,background-size .18s ease}
   }
 
+  .product:hover{border-color:rgba(234,230,224,.26)}
+  @media (prefers-reduced-motion:no-preference){
+    .product{transition:transform .3s ease,border-color .18s ease}
+    .product:hover{transform:translateY(-2px);transition-duration:.125s,.18s}
+    @supports (animation-timeline:view()){
+      .row,.product,.who,.contact{animation:risein linear both;animation-timeline:view();animation-range:entry 0% cover 22%}
+    }
+  }
+  @keyframes risein{from{opacity:.3;transform:translateY(8px)}}
+
   @media (max-width:720px){
     .slab{padding:38px 24px 34px}
     .row{grid-template-columns:1fr;gap:4px}
