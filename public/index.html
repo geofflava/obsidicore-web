@@ -46,6 +46,7 @@
   ::-moz-selection{background:rgba(255,91,31,.28);color:var(--ink);text-shadow:none}
   :focus-visible{outline:2px solid var(--ember);outline-offset:2px;border-radius:2px}
   .btn:focus-visible,.wordmark:focus-visible{box-shadow:0 0 0 4px rgba(255,91,31,.16)}
+  .btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
   .wrap{max-width:880px;margin:0 auto;padding:0 24px}
   .label{font:600 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ash)}
   h1,h2,h3,.slab h1{text-wrap:balance}
@@ -71,11 +72,15 @@
   .slab::after{ /* conchoidal glint */
     content:"";position:absolute;top:-40%;right:-12%;width:52%;height:150%;
     background:linear-gradient(100deg, transparent 44%, rgba(234,230,224,.05) 50%, transparent 56%);
-    pointer-events:none;
+    pointer-events:none;opacity:.85;
   }
-  @keyframes glint{from{transform:translateX(40%);opacity:0}to{transform:translateX(0);opacity:1}}
+  .slab:hover::after{transform:translateX(-12%);opacity:1}
+  @keyframes glint{from{transform:translateX(40%);opacity:0}}
   @media (prefers-reduced-motion:no-preference){
-    .slab::after{animation:glint 1.4s cubic-bezier(.4,0,.2,1) .2s both}
+    .slab::after{animation:glint 1.4s cubic-bezier(.4,0,.2,1) .2s backwards;transition:transform .6s ease,opacity .6s ease}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .slab:hover::after{transform:none;opacity:.85}
   }
   .slab .tagline{font:600 10.5px/1.7 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--ash)}
   .slab .tagline em{color:var(--ember);font-style:normal}
@@ -103,7 +108,7 @@
   .product p{color:var(--ash);font-size:15px;max-width:60ch}
   .product .sub{margin-top:10px;font-size:13.5px}
   .product .links{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px}
-  .product .links a{font:600 12px/1 var(--mono);letter-spacing:.06em;text-decoration:none;border-bottom:1px solid var(--ember);padding-bottom:2px}
+  .product .links a{font:600 12px/1 var(--mono);letter-spacing:.06em;text-decoration:underline;text-decoration-color:var(--ember);text-decoration-thickness:1px;text-underline-offset:3px}
   .chip{font:600 10.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(127,194,155,.45);color:var(--go);border-radius:2px;padding:4px 8px;margin-left:12px;vertical-align:2px;font-variant-numeric:slashed-zero tabular-nums}
 
   .who{display:grid;grid-template-columns:96px 1fr;gap:24px;align-items:start}
@@ -111,7 +116,7 @@
   .who p{color:var(--ash);font-size:15px;max-width:58ch}
   .who p strong{color:var(--ink);font-weight:600}
   .who .links{display:flex;gap:18px;margin-top:12px;flex-wrap:wrap}
-  .who .links a{font:600 12px/1 var(--mono);letter-spacing:.06em;text-decoration:none;border-bottom:1px solid var(--ember);padding-bottom:2px}
+  .who .links a{font:600 12px/1 var(--mono);letter-spacing:.06em;text-decoration:underline;text-decoration-color:var(--ember);text-decoration-thickness:1px;text-underline-offset:3px}
 
   .contact{border:1px solid var(--line);border-radius:2px;background:var(--glass);padding:30px;display:flex;justify-content:space-between;align-items:center;gap:22px;flex-wrap:wrap}
   .contact p{color:var(--ash);max-width:46ch;font-size:15px}
@@ -122,8 +127,12 @@
   footer.site{margin-top:70px;border-top:1px solid var(--line-soft);padding:24px 0 40px}
   .foot{display:flex;justify-content:space-between;gap:10px 26px;flex-wrap:wrap;color:var(--ash);font:500 12px/1.7 var(--mono)}
   .foot nav{display:flex;gap:18px;flex-wrap:wrap}
-  .foot a{color:var(--ash);text-decoration:none}
+  .foot a{color:var(--ash);text-decoration:none;background:linear-gradient(var(--ember),var(--ember)) 0 100%/0 1px no-repeat}
   .foot a:hover{color:var(--ember)}
+  .foot a:hover,.foot a:focus-visible{background-size:100% 1px}
+  @media (prefers-reduced-motion:no-preference){
+    .foot a{transition:color .15s ease,background-size .18s ease}
+  }
 
   @media (max-width:720px){
     .slab{padding:38px 24px 34px}
