@@ -1,0 +1,7 @@
+﻿node_modules/
+.firebase/
+*.pdf
+*.png
+.env
+.env.*
+.cursor/mcp.json

@@ -1,0 +1,18 @@
+---
+description: Static site guardrails — locked palette/voice, zero-JS/CSP, reduced-motion, Lighthouse 100s.
+alwaysApply: true
+---
+# Site rules (lavaforge.dev / obsidicore.com)
+- Palette + type are LOCKED. Ember `#FF5B1F` is the single scarce accent; ember-on-dark button
+  label is `#1a0d05`. Don't touch wordmark text or the sanctioned tokens.
+- CSP / zero-JS is absolute: inline CSS or data: URIs only. No scripts, no external
+  fonts/images/CDN. If an idea needs JS, it's out of scope.
+- `prefers-reduced-motion: reduce` is mandatory for any transform or looping animation; keep
+  interactive transition durations <=250ms; name every transitioned property (never `all`).
+- Lighthouse stays 100/100/100/100 (perf/bp/seo; lavaforge a11y is a pre-existing 95 from nav
+  target-size). Composite-only animations (transform/opacity); no background-attachment:fixed;
+  zero CLS (absolutely-positioned pseudo-elements).
+- Coherence is a shared GESTURE, not a shared surface: lavaforge = warm build-log + ember
+  horizon; obsidicore = cool glass slab + glint. Don't flatten one into the other.
+- Deploy: `firebase deploy --only hosting` per project (needs the account that owns the
+  Firebase project). Push source via the geoff-obsidicore token, not `gh auth switch`.
